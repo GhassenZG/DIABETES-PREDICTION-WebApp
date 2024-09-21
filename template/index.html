@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p.author {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 0;
+        }
+        
+        p {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button[type="submit"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        
+        a:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction</h1>
+        <p class="author">by Ghassen Zgorni</p>
+        <p>This application predicts the likelihood of an individual having diabetes based on their health parameters. Please enter your health information below to get started.</p>
+        <form action="{{ url_for('predict') }}" method="post" onsubmit="return showAlert()">
+            <label for="pregnancies">Number of Pregnancies:</label>
+            <input type="text" id="pregnancies" name="pregnancies" required>
+            <label for="glucose">Glucose Level:</label>
+            <input type="text" id="glucose" name="glucose" required>
+            <label for="blood_pressure">Blood Pressure:</label>
+            <input type="text" id="blood_pressure" name="blood_pressure" required>
+            <label for="skin_thickness">Skin Thickness:</label>
+            <input type="text" id="skin_thickness" name="skin_thickness" required>
+            <label for="insulin">Insulin Level:</label>
+            <input type="text" id="insulin" name="insulin" required>
+            <label for="bmi">BMI:</label>
+            <input type="text" id="bmi" name="bmi" required>
+            <label for="diabetes_pedigree_function">Diabetes Pedigree Function:</label>
+            <input type="text" id="diabetes_pedigree_function" name="diabetes_pedigree_function" required>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+            <button type="submit">Predict</button>
+        </form>
+        <p>This model is trained using a dataset that contains information on various health parameters of individuals, along with their diabetic status.</p>
+    </div>
+
+    <script>
+        function showAlert() {
+            alert("Your prediction is being processed. Please wait...");
+            return true;
+        }
+    </script>
+</body>
+</html>
